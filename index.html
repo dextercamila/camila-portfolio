@@ -1,18 +1,22 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dexter Camila — Freelance Software Developer</title>
-  <meta name="description" content="Senior freelance software developer building high-conviction web applications, custom design systems, and resilient cloud architectures." />
+  <meta name="description"
+    content="Senior freelance software developer building high-conviction web applications, custom design systems, and resilient cloud architectures." />
   <meta property="og:title" content="Dexter Camila — Freelance Software Developer" />
-  <meta property="og:description" content="Single-page portfolio of freelance developer Dexter Camila featuring original isometric illustrations and interactive case studies." />
+  <meta property="og:description"
+    content="Single-page portfolio of freelance developer Dexter Camila featuring original isometric illustrations and interactive case studies." />
   <meta property="og:type" content="website" />
-  
+
   <!-- Google Fonts: Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
 
   <style>
     /* ==========================================================================
@@ -34,7 +38,9 @@
       --font-h2: clamp(2.2rem, 5vw, 3.8rem);
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -61,7 +67,9 @@
     }
 
     /* Accessibility Focus Styles */
-    a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    a:focus-visible,
+    button:focus-visible,
+    [tabindex]:focus-visible {
       outline: 3px solid var(--accent-marigold);
       outline-offset: 3px;
     }
@@ -87,6 +95,7 @@
         transform: translate(-50%, -50%);
         transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
       }
+
       .cursor-ring {
         width: 36px;
         height: 36px;
@@ -100,12 +109,14 @@
         transform: translate(-50%, -50%);
         transition: transform 0.08s ease-out, border-color 0.2s ease;
       }
+
       body.cursor-hover .cursor-dot {
         width: 22px;
         height: 22px;
         background-color: var(--accent-marigold);
         mix-blend-mode: normal;
       }
+
       body.cursor-hover .cursor-ring {
         transform: translate(-50%, -50%) scale(1.4);
         border-color: var(--accent-marigold);
@@ -131,6 +142,7 @@
       align-items: center;
       gap: 8px;
     }
+
     .micro-label::before {
       content: '';
       display: inline-block;
@@ -160,10 +172,12 @@
       cursor: pointer;
       border: none;
     }
+
     .btn-pill:hover {
       transform: translateY(-2px);
       box-shadow: 0 24px 44px -10px rgba(150, 18, 8, 0.55);
     }
+
     .btn-badge-circle {
       width: 36px;
       height: 36px;
@@ -175,6 +189,7 @@
       flex-shrink: 0;
       transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
+
     .btn-pill:hover .btn-badge-circle {
       transform: rotate(45deg) scale(1.08);
     }
@@ -187,6 +202,7 @@
       backdrop-filter: blur(8px);
       transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
+
     .card:hover {
       background-color: var(--card-bg-hover);
       border-color: rgba(255, 249, 245, 0.32);
@@ -204,6 +220,7 @@
       z-index: 100;
       background: linear-gradient(180deg, var(--bg-canvas) 85%, rgba(250, 83, 65, 0) 100%);
     }
+
     .nav-inner {
       display: flex;
       align-items: center;
@@ -227,11 +244,14 @@
       box-shadow: 0 8px 20px rgba(160, 24, 12, 0.35);
       transition: transform 0.2s ease;
     }
+
     .ticket-stub:hover {
       transform: translateY(-2px);
     }
+
     /* Cutout notches on ticket edges */
-    .ticket-stub::before, .ticket-stub::after {
+    .ticket-stub::before,
+    .ticket-stub::after {
       content: '';
       position: absolute;
       width: 10px;
@@ -241,14 +261,22 @@
       top: 50%;
       transform: translateY(-50%);
     }
-    .ticket-stub::before { left: -5px; }
-    .ticket-stub::after { right: -5px; }
+
+    .ticket-stub::before {
+      left: -5px;
+    }
+
+    .ticket-stub::after {
+      right: -5px;
+    }
+
     .ticket-stub .stub-sep {
       height: 16px;
       width: 1px;
       border-right: 1px dashed rgba(30, 18, 16, 0.35);
       margin: 0 10px;
     }
+
     .ticket-stub .stub-year {
       font-size: 11px;
       color: #724039;
@@ -262,6 +290,7 @@
       gap: clamp(16px, 2.5vw, 32px);
       list-style: none;
     }
+
     .nav-link {
       color: var(--text-main);
       text-decoration: none;
@@ -273,6 +302,7 @@
       position: relative;
       transition: color 0.2s ease;
     }
+
     .nav-link::after {
       content: '';
       position: absolute;
@@ -283,7 +313,9 @@
       background-color: var(--accent-marigold);
       transition: width 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
-    .nav-link:hover::after, .nav-link.active::after {
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
       width: 100%;
     }
 
@@ -293,6 +325,7 @@
       align-items: center;
       gap: 12px;
     }
+
     .social-btn {
       width: 42px;
       height: 42px;
@@ -307,6 +340,7 @@
       position: relative;
       transition: all 0.25s ease;
     }
+
     .social-btn::after {
       content: '';
       position: absolute;
@@ -317,11 +351,13 @@
       transform: scale(0.8);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .social-btn:hover {
       background-color: var(--text-main);
       color: var(--accent-dark);
       transform: translateY(-2px);
     }
+
     .social-btn:hover::after {
       opacity: 1;
       transform: scale(1.08);
@@ -333,12 +369,14 @@
     .hero-section {
       padding: clamp(40px, 7vw, 90px) 0 clamp(60px, 8vw, 120px);
     }
+
     .hero-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       align-items: center;
       gap: clamp(32px, 5vw, 64px);
     }
+
     .hero-name {
       font-size: var(--font-hero);
       font-weight: 800;
@@ -348,6 +386,7 @@
       margin: 20px 0 24px;
       word-break: break-word;
     }
+
     .hero-desc {
       font-size: clamp(16px, 1.4vw, 19px);
       line-height: 1.6;
@@ -355,12 +394,14 @@
       color: rgba(255, 249, 245, 0.9);
       margin-bottom: 36px;
     }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 20px;
     }
+
     .avail-badge {
       display: inline-flex;
       align-items: center;
@@ -374,6 +415,7 @@
       background: rgba(255, 249, 245, 0.06);
       border: 1px solid var(--card-border);
     }
+
     .avail-dot {
       width: 8px;
       height: 8px;
@@ -382,9 +424,19 @@
       box-shadow: 0 0 10px #55E589;
       animation: pulse-dot 2s infinite;
     }
+
     @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+      }
     }
 
     /* Workstation Isometric Stage */
@@ -395,6 +447,7 @@
       margin: 0 auto;
       perspective: 1000px;
     }
+
     .isometric-stage {
       width: 100%;
       height: auto;
@@ -410,9 +463,11 @@
     .section-wrap {
       padding: clamp(50px, 8vw, 100px) 0;
     }
+
     .section-header {
       margin-bottom: clamp(32px, 5vw, 56px);
     }
+
     .section-title {
       font-size: var(--font-h2);
       font-weight: 800;
@@ -428,6 +483,7 @@
       grid-template-rows: auto auto;
       gap: 30px;
     }
+
     /* Card 1 is promoted & spans both rows */
     .work-card.promoted {
       grid-row: 1 / 3;
@@ -435,6 +491,7 @@
       flex-direction: column;
       padding: clamp(24px, 3.5vw, 36px);
     }
+
     .work-card:not(.promoted) {
       padding: clamp(20px, 2.5vw, 28px);
       display: flex;
@@ -447,12 +504,14 @@
       justify-content: space-between;
       margin-bottom: 20px;
     }
+
     .card-num {
       font-size: 13px;
       font-weight: 800;
       letter-spacing: 0.15em;
       color: var(--accent-marigold);
     }
+
     .card-cat {
       font-size: 11px;
       font-weight: 700;
@@ -460,6 +519,7 @@
       text-transform: uppercase;
       color: rgba(255, 249, 245, 0.7);
     }
+
     .card-icon-btn {
       width: 38px;
       height: 38px;
@@ -473,6 +533,7 @@
       text-decoration: none;
       transition: all 0.25s ease;
     }
+
     .card-icon-btn:hover {
       background: var(--text-main);
       color: var(--accent-dark);
@@ -491,10 +552,12 @@
       justify-content: center;
       padding: 16px;
     }
+
     .work-card.promoted .preview-box {
       flex: 1;
       min-height: 260px;
     }
+
     .work-card:not(.promoted) .preview-box {
       height: 160px;
     }
@@ -506,17 +569,20 @@
       letter-spacing: -0.02em;
       margin-bottom: 8px;
     }
+
     .work-desc {
       font-size: 14px;
       color: rgba(255, 249, 245, 0.85);
       margin-bottom: 20px;
     }
+
     .tag-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       margin-bottom: 24px;
     }
+
     .tag-pill {
       font-size: 11px;
       font-weight: 600;
@@ -527,6 +593,7 @@
       border: 1px solid rgba(255, 249, 245, 0.16);
       color: rgba(255, 249, 245, 0.9);
     }
+
     .work-footer {
       margin-top: auto;
       display: flex;
@@ -545,6 +612,7 @@
       padding-bottom: 16px;
       overflow-x: auto;
     }
+
     .tab-btn {
       background: transparent;
       border: none;
@@ -560,10 +628,12 @@
       transition: all 0.25s ease;
       white-space: nowrap;
     }
+
     .tab-btn:hover {
       color: var(--text-main);
       background: rgba(255, 249, 245, 0.08);
     }
+
     .tab-btn.active {
       color: var(--accent-dark);
       background-color: var(--accent-marigold);
@@ -575,6 +645,7 @@
       flex-direction: column;
       gap: 12px;
     }
+
     .talk-row {
       display: grid;
       grid-template-columns: 80px 44px 1fr auto auto 50px;
@@ -591,22 +662,26 @@
       position: relative;
       overflow: hidden;
     }
+
     .talk-year {
       font-size: 13px;
       font-weight: 700;
       color: var(--accent-marigold);
       letter-spacing: 0.06em;
     }
+
     .talk-glyph {
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
     .talk-title {
       font-size: 16px;
       font-weight: 700;
       letter-spacing: -0.01em;
     }
+
     .chip {
       display: inline-flex;
       align-items: center;
@@ -619,6 +694,7 @@
       border: 1px solid rgba(255, 249, 245, 0.16);
       white-space: nowrap;
     }
+
     .talk-chevron-box {
       width: 36px;
       height: 36px;
@@ -631,22 +707,29 @@
     }
 
     /* Active / Hover Row Inverts to White with Marigold Chevron Block */
-    .talk-row:hover, .talk-row.active {
+    .talk-row:hover,
+    .talk-row.active {
       background-color: var(--text-main);
       color: var(--accent-dark);
       border-color: var(--text-main);
       transform: translateX(6px);
       box-shadow: var(--shadow-coral);
     }
-    .talk-row:hover .talk-year, .talk-row.active .talk-year {
+
+    .talk-row:hover .talk-year,
+    .talk-row.active .talk-year {
       color: #9C2719;
     }
-    .talk-row:hover .chip, .talk-row.active .chip {
+
+    .talk-row:hover .chip,
+    .talk-row.active .chip {
       background: rgba(30, 18, 16, 0.07);
       border-color: rgba(30, 18, 16, 0.15);
       color: var(--accent-dark);
     }
-    .talk-row:hover .talk-chevron-box, .talk-row.active .talk-chevron-box {
+
+    .talk-row:hover .talk-chevron-box,
+    .talk-row.active .talk-chevron-box {
       background-color: var(--accent-marigold);
       color: var(--accent-dark);
       transform: translateX(2px);
@@ -664,6 +747,7 @@
       overflow: hidden;
       position: relative;
     }
+
     .case-logo-badge {
       display: inline-flex;
       align-items: center;
@@ -678,6 +762,7 @@
       border: 1px solid rgba(255, 249, 245, 0.24);
       margin-bottom: 20px;
     }
+
     .case-title {
       font-size: clamp(1.8rem, 3.2vw, 2.6rem);
       font-weight: 800;
@@ -686,23 +771,27 @@
       text-transform: uppercase;
       margin-bottom: 18px;
     }
+
     .case-desc {
       font-size: 15px;
       line-height: 1.7;
       color: rgba(255, 249, 245, 0.9);
       margin-bottom: 24px;
     }
+
     .dash-divider {
       border: none;
       border-top: 1px dashed rgba(255, 249, 245, 0.35);
       margin: 24px 0;
     }
+
     .metrics-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       margin-bottom: 32px;
     }
+
     .metric-val {
       font-size: clamp(1.6rem, 2.4vw, 2.2rem);
       font-weight: 800;
@@ -710,6 +799,7 @@
       line-height: 1;
       letter-spacing: -0.02em;
     }
+
     .metric-label {
       font-size: 11px;
       font-weight: 600;
@@ -729,6 +819,7 @@
       align-items: center;
       justify-content: center;
     }
+
     .mockup-svg-canvas {
       width: 100%;
       max-width: 480px;
@@ -737,6 +828,7 @@
       filter: drop-shadow(0 24px 36px rgba(140, 16, 6, 0.5));
       transition: transform 0.4s ease;
     }
+
     .case-panel:hover .mockup-svg-canvas {
       transform: rotateX(4deg) rotateY(-8deg) rotateZ(1deg) scale(1.02);
     }
@@ -750,11 +842,13 @@
       justify-content: space-between;
       margin-bottom: 36px;
     }
+
     .carousel-controls {
       display: flex;
       align-items: center;
       gap: 16px;
     }
+
     .carousel-counter {
       font-size: 14px;
       font-weight: 800;
@@ -763,6 +857,7 @@
       min-width: 70px;
       text-align: center;
     }
+
     .ctrl-btn {
       width: 44px;
       height: 44px;
@@ -776,6 +871,7 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
+
     .ctrl-btn:hover {
       background: var(--text-main);
       color: var(--accent-dark);
@@ -787,11 +883,13 @@
       padding: 16px 0 32px;
       position: relative;
     }
+
     .carousel-track {
       display: flex;
       gap: 24px;
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .award-card {
       flex: 0 0 calc(33.333% - 16px);
       min-width: 290px;
@@ -805,6 +903,7 @@
       display: flex;
       flex-direction: column;
     }
+
     .award-card.centered {
       opacity: 1;
       transform: scale(1.02);
@@ -812,12 +911,14 @@
       background: rgba(255, 249, 245, 0.12);
       box-shadow: var(--shadow-coral);
     }
+
     .award-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 24px;
     }
+
     .award-year {
       font-size: 11px;
       font-weight: 700;
@@ -827,6 +928,7 @@
       background: rgba(255, 249, 245, 0.1);
       border: 1px solid rgba(255, 249, 245, 0.2);
     }
+
     .award-title {
       font-size: 18px;
       font-weight: 800;
@@ -834,6 +936,7 @@
       letter-spacing: -0.01em;
       margin: 16px 0 8px;
     }
+
     .award-desc {
       font-size: 13px;
       line-height: 1.6;
@@ -841,6 +944,7 @@
       margin-bottom: 24px;
       flex: 1;
     }
+
     .award-cta {
       font-size: 12px;
       font-weight: 700;
@@ -853,6 +957,7 @@
       gap: 6px;
       transition: gap 0.2s ease;
     }
+
     .award-cta:hover {
       gap: 10px;
     }
@@ -866,6 +971,7 @@
       align-items: center;
       gap: clamp(32px, 5vw, 64px);
     }
+
     .find-headline {
       font-size: clamp(2.4rem, 5.2vw, 4.4rem);
       font-weight: 800;
@@ -873,11 +979,13 @@
       letter-spacing: -0.03em;
       text-transform: uppercase;
     }
+
     .social-tiles-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
     }
+
     .social-tile {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -892,34 +1000,43 @@
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
     }
+
     .social-tile-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
+
     .social-tile-name {
       font-size: 17px;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: -0.01em;
     }
+
     .social-tile-handle {
       font-size: 12px;
       color: rgba(255, 249, 245, 0.7);
       margin-top: 4px;
     }
+
     /* Active / Hover Tile Scales Up & Takes Inverse Brand Color */
-    .social-tile:hover, .social-tile.active {
+    .social-tile:hover,
+    .social-tile.active {
       background-color: var(--text-main);
       color: var(--accent-dark);
       border-color: var(--text-main);
       transform: scale(1.05) translateY(-4px);
       box-shadow: 0 24px 44px -8px rgba(150, 18, 8, 0.55);
     }
-    .social-tile:hover .social-tile-handle, .social-tile.active .social-tile-handle {
+
+    .social-tile:hover .social-tile-handle,
+    .social-tile.active .social-tile-handle {
       color: #724039;
     }
-    .social-tile:hover .tile-arrow, .social-tile.active .tile-arrow {
+
+    .social-tile:hover .tile-arrow,
+    .social-tile.active .tile-arrow {
       color: #FA5341;
       transform: translate(2px, -2px);
     }
@@ -932,6 +1049,7 @@
       border-top: 1px solid var(--card-border);
       margin-top: clamp(60px, 8vw, 120px);
     }
+
     .footer-top {
       display: flex;
       flex-wrap: wrap;
@@ -940,12 +1058,14 @@
       gap: 24px;
       margin-bottom: 40px;
     }
+
     .footer-links {
       display: flex;
       flex-wrap: wrap;
       gap: clamp(16px, 3vw, 32px);
       list-style: none;
     }
+
     .footer-link {
       color: rgba(255, 249, 245, 0.8);
       text-decoration: none;
@@ -955,9 +1075,11 @@
       text-transform: uppercase;
       transition: color 0.2s ease;
     }
+
     .footer-link:hover {
       color: var(--accent-marigold);
     }
+
     .footer-bottom {
       display: flex;
       flex-wrap: wrap;
@@ -979,6 +1101,7 @@
       transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
       transition-delay: calc(var(--stagger, 0) * 80ms);
     }
+
     .reveal-node.is-revealed {
       opacity: 1;
       transform: translateY(0);
@@ -990,6 +1113,7 @@
         transform: none !important;
         transition: none !important;
       }
+
       .isometric-stage {
         transition: none !important;
       }
@@ -1016,6 +1140,7 @@
       align-items: center;
       gap: 10px;
     }
+
     .toast.show {
       transform: translateY(0);
       opacity: 1;
@@ -1030,6 +1155,7 @@
         scroll-snap-type: x mandatory;
         padding-bottom: 20px;
       }
+
       .award-card {
         scroll-snap-align: center;
       }
@@ -1040,18 +1166,23 @@
         grid-template-columns: 1fr;
         text-align: left;
       }
+
       .stage-wrapper {
         margin-top: 20px;
       }
+
       .work-grid {
         grid-template-columns: 1fr;
       }
+
       .work-card.promoted {
         grid-row: auto;
       }
+
       .case-panel {
         grid-template-columns: 1fr;
       }
+
       .find-grid {
         grid-template-columns: 1fr;
       }
@@ -1061,16 +1192,22 @@
       .nav-links {
         display: none;
       }
+
       .talk-row {
         grid-template-columns: 60px 1fr 36px;
         gap: 12px;
       }
-      .talk-glyph, .chip.location-chip, .chip.topic-chip {
+
+      .talk-glyph,
+      .chip.location-chip,
+      .chip.topic-chip {
         display: none;
       }
+
       .metrics-row {
         grid-template-columns: 1fr;
       }
+
       .social-tiles-grid {
         grid-template-columns: 1fr;
       }
@@ -1080,16 +1217,19 @@
       .hero-name {
         font-size: 3.4rem;
       }
+
       .btn-pill {
         width: 100%;
         justify-content: center;
       }
+
       .card {
         padding: 18px !important;
       }
     }
   </style>
 </head>
+
 <body>
 
   <!-- Custom Cursor Elements (Desktop Only) -->
@@ -1098,7 +1238,8 @@
 
   <!-- Toast for Copy Action -->
   <div class="toast" id="toast" role="status" aria-live="polite">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2EB85C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2EB85C" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
       <polyline points="20 6 9 17 4 12"></polyline>
     </svg>
     <span id="toastMsg">Email copied to clipboard!</span>
@@ -1130,21 +1271,29 @@
       <!-- Three circular social buttons with hover ring animation -->
       <div class="nav-socials">
         <!-- GitHub -->
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Dexter's GitHub profile">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn"
+          aria-label="Dexter's GitHub profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+            </path>
           </svg>
         </a>
         <!-- Twitter/X -->
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Dexter's Twitter profile">
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-btn"
+          aria-label="Dexter's Twitter profile">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            <path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
           </svg>
         </a>
         <!-- LinkedIn -->
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Dexter's LinkedIn profile">
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn"
+          aria-label="Dexter's LinkedIn profile">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            <path
+              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
           </svg>
         </a>
       </div>
@@ -1164,13 +1313,15 @@
             DEXTER<br>CAMILA
           </h1>
           <p class="hero-desc">
-            Architecting robust web applications, design systems, and distributed cloud backends with meticulous craft for venture-backed startups and studios.
+            Architecting robust web applications, design systems, and distributed cloud backends with meticulous craft
+            for venture-backed startups and studios.
           </p>
           <div class="hero-actions">
             <!-- Pill CTA in white with a marigold circular play/arrow badge on its left -->
             <a href="#work" class="btn-pill">
               <span class="btn-badge-circle" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E1210" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E1210" stroke-width="2.8"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <polygon points="5 3 19 12 5 21 5 3" fill="#1E1210"></polygon>
                 </svg>
               </span>
@@ -1187,7 +1338,9 @@
 
         <!-- Right Column: Original Isometric SVG Workstation Illustration Diorama -->
         <div class="stage-wrapper reveal-node" style="--stagger: 2;" id="stageWrapper">
-          <svg class="isometric-stage" id="isoStage" viewBox="0 0 540 460" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cutaway isometric illustration of developer workstation with dual monitors, code, terminal, server rack, coffee cup, and UI components">
+          <svg class="isometric-stage" id="isoStage" viewBox="0 0 540 460" fill="none"
+            xmlns="http://www.w3.org/2000/svg" role="img"
+            aria-label="Cutaway isometric illustration of developer workstation with dual monitors, code, terminal, server rack, coffee cup, and UI components">
             <defs>
               <!-- Drop shadow filter -->
               <filter id="isoShadow" x="-10%" y="-10%" width="130%" height="130%">
@@ -1231,8 +1384,10 @@
             </g>
 
             <!-- Curved Cable runs across desk & floor -->
-            <path d="M165 265 Q200 310 240 295 T300 330" fill="none" stroke="#FA5341" stroke-width="3.5" stroke-linecap="round" opacity="0.8" />
-            <path d="M185 270 Q215 315 255 300" fill="none" stroke="#FFC93C" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M165 265 Q200 310 240 295 T300 330" fill="none" stroke="#FA5341" stroke-width="3.5"
+              stroke-linecap="round" opacity="0.8" />
+            <path d="M185 270 Q215 315 255 300" fill="none" stroke="#FFC93C" stroke-width="2.5"
+              stroke-linecap="round" />
 
             <!-- Primary Ultra-Wide Monitor (Isometric Center) -->
             <g id="mainMonitor">
@@ -1259,7 +1414,8 @@
               <line x1="236" y1="164" x2="258" y2="176" stroke="#FA5341" stroke-width="3" stroke-linecap="round" />
               <line x1="265" y1="180" x2="330" y2="217" stroke="#55E589" stroke-width="3" stroke-linecap="round" />
               <!-- Line 3: await pipeline.stream(); -->
-              <line x1="248" y1="182" x2="320" y2="223" stroke="#FFF9F5" stroke-width="2.5" stroke-linecap="round" opacity="0.8" />
+              <line x1="248" y1="182" x2="320" y2="223" stroke="#FFF9F5" stroke-width="2.5" stroke-linecap="round"
+                opacity="0.8" />
               <!-- Line 4: return { status: 200 }; -->
               <line x1="248" y1="194" x2="300" y2="224" stroke="#FFC93C" stroke-width="2.5" stroke-linecap="round" />
               <!-- Line 5: } -->
@@ -1268,7 +1424,8 @@
               <!-- Terminal Split (Lower half of screen) -->
               <path d="M225 210 L375 296 L375 266 L225 178 Z" fill="#0C0706" opacity="0.4" />
               <line x1="236" y1="214" x2="242" y2="217" stroke="#55E589" stroke-width="2.5" stroke-linecap="round" />
-              <line x1="248" y1="220" x2="340" y2="272" stroke="#FFF9F5" stroke-width="2" stroke-dasharray="8 4" opacity="0.6" />
+              <line x1="248" y1="220" x2="340" y2="272" stroke="#FFF9F5" stroke-width="2" stroke-dasharray="8 4"
+                opacity="0.6" />
             </g>
 
             <!-- Vertical Secondary Terminal Monitor (Right side) -->
@@ -1278,7 +1435,8 @@
               <!-- Green terminal prompt lines -->
               <line x1="402" y1="160" x2="435" y2="140" stroke="#55E589" stroke-width="2" stroke-linecap="round" />
               <line x1="402" y1="172" x2="430" y2="155" stroke="#FFC93C" stroke-width="2" stroke-linecap="round" />
-              <line x1="402" y1="184" x2="440" y2="162" stroke="#FFF9F5" stroke-width="1.8" stroke-linecap="round" opacity="0.7" />
+              <line x1="402" y1="184" x2="440" y2="162" stroke="#FFF9F5" stroke-width="1.8" stroke-linecap="round"
+                opacity="0.7" />
               <line x1="402" y1="196" x2="425" y2="182" stroke="#55E589" stroke-width="2" stroke-linecap="round" />
               <line x1="402" y1="208" x2="438" y2="187" stroke="#FA5341" stroke-width="2" stroke-linecap="round" />
             </g>
@@ -1289,8 +1447,10 @@
               <path d="M220 270 L220 276 L280 311 L280 305 Z" fill="#251816" />
               <path d="M280 305 L280 311 L350 271 L350 265 Z" fill="#1E1210" />
               <!-- Key rows -->
-              <line x1="235" y1="270" x2="295" y2="235" stroke="#FFF9F5" stroke-width="2" stroke-linecap="round" opacity="0.7" />
-              <line x1="245" y1="278" x2="310" y2="242" stroke="#FFF9F5" stroke-width="2" stroke-linecap="round" opacity="0.7" />
+              <line x1="235" y1="270" x2="295" y2="235" stroke="#FFF9F5" stroke-width="2" stroke-linecap="round"
+                opacity="0.7" />
+              <line x1="245" y1="278" x2="310" y2="242" stroke="#FFF9F5" stroke-width="2" stroke-linecap="round"
+                opacity="0.7" />
               <line x1="258" y1="288" x2="325" y2="250" stroke="#FFC93C" stroke-width="3" stroke-linecap="round" />
             </g>
 
@@ -1301,11 +1461,15 @@
               <!-- Coffee liquid surface -->
               <ellipse cx="205" cy="305" rx="11" ry="6" fill="#42251D" />
               <!-- Steam vapor waves -->
-              <path d="M202 295 Q205 285 200 275 T208 260" fill="none" stroke="#FFF9F5" stroke-width="1.8" stroke-linecap="round" opacity="0.6">
-                <animate attributeName="d" dur="3s" repeatCount="indefinite" values="M202 295 Q205 285 200 275 T208 260; M204 295 Q198 285 206 275 T202 260; M202 295 Q205 285 200 275 T208 260" />
+              <path d="M202 295 Q205 285 200 275 T208 260" fill="none" stroke="#FFF9F5" stroke-width="1.8"
+                stroke-linecap="round" opacity="0.6">
+                <animate attributeName="d" dur="3s" repeatCount="indefinite"
+                  values="M202 295 Q205 285 200 275 T208 260; M204 295 Q198 285 206 275 T202 260; M202 295 Q205 285 200 275 T208 260" />
               </path>
-              <path d="M208 297 Q212 288 207 280 T214 265" fill="none" stroke="#FFC93C" stroke-width="1.5" stroke-linecap="round" opacity="0.5">
-                <animate attributeName="d" dur="2.5s" repeatCount="indefinite" values="M208 297 Q212 288 207 280 T214 265; M206 297 Q214 288 208 280 T212 265; M208 297 Q212 288 207 280 T214 265" />
+              <path d="M208 297 Q212 288 207 280 T214 265" fill="none" stroke="#FFC93C" stroke-width="1.5"
+                stroke-linecap="round" opacity="0.5">
+                <animate attributeName="d" dur="2.5s" repeatCount="indefinite"
+                  values="M208 297 Q212 288 207 280 T214 265; M206 297 Q214 288 208 280 T212 265; M208 297 Q212 288 207 280 T214 265" />
               </path>
             </g>
 
@@ -1313,16 +1477,20 @@
             <g id="floatingToast" filter="url(#isoShadow)">
               <rect x="80" y="70" width="165" height="46" rx="8" fill="#FFF9F5" />
               <circle cx="102" cy="93" r="10" fill="#55E589" />
-              <path d="M98 93 L101 96 L107 89" stroke="#1E1210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <text x="120" y="89" fill="#1E1210" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700">DEPLOYED EDGE</text>
-              <text x="120" y="103" fill="#786B67" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="600">p99 latency 14ms</text>
+              <path d="M98 93 L101 96 L107 89" stroke="#1E1210" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <text x="120" y="89" fill="#1E1210" font-family="'Space Grotesk', sans-serif" font-size="11"
+                font-weight="700">DEPLOYED EDGE</text>
+              <text x="120" y="103" fill="#786B67" font-family="'Space Grotesk', sans-serif" font-size="9"
+                font-weight="600">p99 latency 14ms</text>
             </g>
 
             <!-- Floating UI Component Diorama 2: Active Feature Toggle -->
             <g id="floatingToggle" filter="url(#isoShadow)">
               <rect x="370" y="55" width="105" height="38" rx="19" fill="#1E1210" stroke="#FFF9F5" stroke-width="1.5" />
               <circle cx="452" cy="74" r="14" fill="#FFC93C" />
-              <text x="388" y="78" fill="#FFF9F5" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">LIVE</text>
+              <text x="388" y="78" fill="#FFF9F5" font-family="'Space Grotesk', sans-serif" font-size="10"
+                font-weight="700">LIVE</text>
             </g>
           </svg>
         </div>
@@ -1349,7 +1517,8 @@
                 <span class="card-cat">FINTECH & PAYMENTS</span>
               </div>
               <a href="#case-study" class="card-icon-btn" aria-label="View Aether Pay Case Study">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <line x1="7" y1="17" x2="17" y2="7"></line>
                   <polyline points="7 7 17 7 17 17"></polyline>
                 </svg>
@@ -1358,9 +1527,12 @@
 
             <!-- Original flat SVG illustration of Aether Pay -->
             <div class="preview-box">
-              <svg width="100%" height="100%" viewBox="0 0 380 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aether Pay dashboard SVG preview with payment sparkline and multi-currency badges">
+              <svg width="100%" height="100%" viewBox="0 0 380 220" fill="none" xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Aether Pay dashboard SVG preview with payment sparkline and multi-currency badges">
                 <!-- Outer mock window -->
-                <rect x="20" y="20" width="340" height="180" rx="10" fill="#1C1311" stroke="rgba(255,249,245,0.15)" stroke-width="1.5" />
+                <rect x="20" y="20" width="340" height="180" rx="10" fill="#1C1311" stroke="rgba(255,249,245,0.15)"
+                  stroke-width="1.5" />
                 <!-- Header bar -->
                 <rect x="20" y="20" width="340" height="30" rx="10" fill="#281B18" />
                 <circle cx="36" cy="35" r="4" fill="#FA5341" />
@@ -1375,19 +1547,23 @@
                 <rect x="55" y="125" width="80" height="6" rx="3" fill="#FFF9F5" opacity="0.9" />
 
                 <!-- Real-time Sparkline Graph -->
-                <path d="M200 130 Q230 90 260 115 T310 75 T340 90" fill="none" stroke="#FFC93C" stroke-width="3.5" stroke-linecap="round" />
+                <path d="M200 130 Q230 90 260 115 T310 75 T340 90" fill="none" stroke="#FFC93C" stroke-width="3.5"
+                  stroke-linecap="round" />
                 <circle cx="310" cy="75" r="5" fill="#FFF9F5" />
 
                 <!-- Stat badge -->
                 <rect x="200" y="65" width="120" height="38" rx="6" fill="#2D1D19" />
-                <text x="212" y="82" fill="#FFF9F5" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700">$428,920.00</text>
-                <text x="212" y="94" fill="#55E589" font-family="'Space Grotesk', sans-serif" font-size="8" font-weight="600">+18.4% volume</text>
+                <text x="212" y="82" fill="#FFF9F5" font-family="'Space Grotesk', sans-serif" font-size="11"
+                  font-weight="700">$428,920.00</text>
+                <text x="212" y="94" fill="#55E589" font-family="'Space Grotesk', sans-serif" font-size="8"
+                  font-weight="600">+18.4% volume</text>
               </svg>
             </div>
 
             <h3 id="proj1-title" class="work-title">Aether Pay</h3>
             <p class="work-desc">
-              Next-generation multi-currency payment infrastructure featuring sub-50ms transaction routing, zero-downtime ledger failover, and composable checkout widgets.
+              Next-generation multi-currency payment infrastructure featuring sub-50ms transaction routing,
+              zero-downtime ledger failover, and composable checkout widgets.
             </p>
 
             <div class="tag-row">
@@ -1400,7 +1576,8 @@
             <div class="work-footer">
               <a href="#case-study" class="btn-pill">
                 <span class="btn-badge-circle" aria-hidden="true">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1E1210" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1E1210" stroke-width="2.8"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
@@ -1419,7 +1596,8 @@
                 <span class="card-cat">CREATIVE TOOLS & WEBGL</span>
               </div>
               <a href="#contact" class="card-icon-btn" aria-label="Launch Vector Studio details">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <line x1="7" y1="17" x2="17" y2="7"></line>
                   <polyline points="7 7 17 7 17 17"></polyline>
                 </svg>
@@ -1428,10 +1606,12 @@
 
             <!-- SVG Illustration for Vector Studio -->
             <div class="preview-box">
-              <svg width="100%" height="100%" viewBox="0 0 280 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vector Studio node canvas preview">
+              <svg width="100%" height="100%" viewBox="0 0 280 140" fill="none" xmlns="http://www.w3.org/2000/svg"
+                role="img" aria-label="Vector Studio node canvas preview">
                 <rect width="280" height="140" rx="8" fill="#1E1412" />
                 <!-- Grid background -->
-                <path d="M0 35 H280 M0 70 H280 M0 105 H280 M70 0 V140 M140 0 V140 M210 0 V140" stroke="rgba(255,249,245,0.06)" stroke-width="1" />
+                <path d="M0 35 H280 M0 70 H280 M0 105 H280 M70 0 V140 M140 0 V140 M210 0 V140"
+                  stroke="rgba(255,249,245,0.06)" stroke-width="1" />
                 <!-- Bezier Curve with Anchor Handles -->
                 <path d="M40 90 C90 10 180 130 240 50" fill="none" stroke="#FFC93C" stroke-width="3.5" />
                 <circle cx="40" cy="90" r="5" fill="#FA5341" stroke="#FFF9F5" stroke-width="2" />
@@ -1444,7 +1624,8 @@
 
             <h3 id="proj2-title" class="work-title">Vector Studio</h3>
             <p class="work-desc">
-              Collaborative in-browser generative canvas powered by custom WebGL fragment shaders and CRDT-based multi-user sync.
+              Collaborative in-browser generative canvas powered by custom WebGL fragment shaders and CRDT-based
+              multi-user sync.
             </p>
 
             <div class="tag-row">
@@ -1472,7 +1653,8 @@
                 <span class="card-cat">DEV INFRASTRUCTURE</span>
               </div>
               <a href="#contact" class="card-icon-btn" aria-label="Launch Pulse Engine details">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <line x1="7" y1="17" x2="17" y2="7"></line>
                   <polyline points="7 7 17 7 17 17"></polyline>
                 </svg>
@@ -1481,7 +1663,8 @@
 
             <!-- SVG Illustration for Pulse Engine -->
             <div class="preview-box">
-              <svg width="100%" height="100%" viewBox="0 0 280 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pulse Engine cluster telemetry preview">
+              <svg width="100%" height="100%" viewBox="0 0 280 140" fill="none" xmlns="http://www.w3.org/2000/svg"
+                role="img" aria-label="Pulse Engine cluster telemetry preview">
                 <rect width="280" height="140" rx="8" fill="#18100E" />
                 <!-- Cluster nodes -->
                 <circle cx="60" cy="70" r="18" fill="#2B1A16" stroke="#FA5341" stroke-width="2" />
@@ -1500,7 +1683,8 @@
 
             <h3 id="proj3-title" class="work-title">Pulse Engine</h3>
             <p class="work-desc">
-              High-throughput telemetry pipeline collecting over 8M system events/sec with columnar edge aggregation and anomaly alerts.
+              High-throughput telemetry pipeline collecting over 8M system events/sec with columnar edge aggregation and
+              anomaly alerts.
             </p>
 
             <div class="tag-row">
@@ -1547,7 +1731,9 @@
             <span class="talk-year">2025</span>
             <div class="talk-glyph" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                </polygon>
               </svg>
             </div>
             <span class="talk-title">Zero-Latency State Synchronization over WebSockets</span>
@@ -1605,7 +1791,9 @@
             <span class="talk-title">TurboMesh: Micro-framework for Edge Event Streaming</span>
             <span class="chip location-chip">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                </path>
               </svg>
               GitHub · 4.8k Stars
             </span>
@@ -1622,7 +1810,9 @@
             <span class="talk-year">2024</span>
             <div class="talk-glyph" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                </polygon>
               </svg>
             </div>
             <span class="talk-title">Building Resilient UI Foundations for 100M+ Users</span>
@@ -1671,7 +1861,9 @@
             </h3>
 
             <p class="case-desc">
-              Migrated legacy monolithic billing flows to an edge-first distributed micro-frontend topology. Delivered sub-50ms payment verification, resilient multi-gateway fallback, and a custom accessible design system used across 48 countries.
+              Migrated legacy monolithic billing flows to an edge-first distributed micro-frontend topology. Delivered
+              sub-50ms payment verification, resilient multi-gateway fallback, and a custom accessible design system
+              used across 48 countries.
             </p>
 
             <hr class="dash-divider" />
@@ -1694,7 +1886,8 @@
 
             <a href="#contact" class="btn-pill">
               <span class="btn-badge-circle" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1E1210" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1E1210" stroke-width="2.8"
+                  stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
                 </svg>
@@ -1708,7 +1901,8 @@
             <svg class="mockup-svg-canvas" viewBox="0 0 460 360" fill="none" xmlns="http://www.w3.org/2000/svg">
               <!-- Back Mockup Screen (Rotated) -->
               <g opacity="0.6">
-                <rect x="20" y="30" width="360" height="220" rx="12" fill="#1C1311" stroke="rgba(255,249,245,0.2)" stroke-width="1.5" />
+                <rect x="20" y="30" width="360" height="220" rx="12" fill="#1C1311" stroke="rgba(255,249,245,0.2)"
+                  stroke-width="1.5" />
                 <rect x="35" y="50" width="120" height="12" rx="4" fill="#FA5341" />
                 <rect x="35" y="75" width="200" height="8" rx="4" fill="rgba(255,249,245,0.3)" />
                 <rect x="35" y="95" width="160" height="8" rx="4" fill="rgba(255,249,245,0.2)" />
@@ -1727,14 +1921,19 @@
                 <rect x="110" y="145" width="180" height="70" rx="8" fill="#FA5341" />
                 <circle cx="135" cy="170" r="10" fill="#FFC93C" />
                 <circle cx="147" cy="170" r="10" fill="#FFF9F5" opacity="0.8" />
-                <text x="135" y="202" fill="#FFF9F5" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">•••• 8492</text>
+                <text x="135" y="202" fill="#FFF9F5" font-family="'Space Grotesk', sans-serif" font-size="10"
+                  font-weight="700">•••• 8492</text>
 
                 <!-- Status Card Floating -->
-                <rect x="310" y="145" width="105" height="110" rx="8" fill="#180F0D" stroke="rgba(255,249,245,0.15)" stroke-width="1" />
+                <rect x="310" y="145" width="105" height="110" rx="8" fill="#180F0D" stroke="rgba(255,249,245,0.15)"
+                  stroke-width="1" />
                 <circle cx="362" cy="180" r="16" fill="#55E589" />
-                <path d="M356 180 L360 184 L368 175" stroke="#1E1210" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                <text x="330" y="215" fill="#FFF9F5" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="700">AUTHORIZED</text>
-                <text x="338" y="230" fill="#FFC93C" font-family="'Space Grotesk', sans-serif" font-size="8" font-weight="600">32ms ROUTE</text>
+                <path d="M356 180 L360 184 L368 175" stroke="#1E1210" stroke-width="2.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <text x="330" y="215" fill="#FFF9F5" font-family="'Space Grotesk', sans-serif" font-size="9"
+                  font-weight="700">AUTHORIZED</text>
+                <text x="338" y="230" fill="#FFC93C" font-family="'Space Grotesk', sans-serif" font-size="8"
+                  font-weight="600">32ms ROUTE</text>
               </g>
             </svg>
           </div>
@@ -1757,12 +1956,14 @@
           <div class="carousel-controls">
             <span class="carousel-counter" id="carouselCounter" aria-live="polite">№ 1 / 3</span>
             <button class="ctrl-btn" id="prevBtn" aria-label="Previous Award">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="15 18 9 12 15 6"></polyline>
               </svg>
             </button>
             <button class="ctrl-btn" id="nextBtn" aria-label="Next Award">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="9 18 15 12 9 6"></polyline>
               </svg>
             </button>
@@ -1778,12 +1979,15 @@
                 <span class="award-year">2025</span>
                 <!-- Laurel Emblem SVG -->
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFC93C" stroke-width="2">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                  <path
+                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                  </path>
                 </svg>
               </div>
               <h3 class="award-title">Awwwards Site of the Year</h3>
               <p class="award-desc">
-                Nominated for breakthrough creative engineering, buttery 60fps micro-interactions, and accessible web standards on Hyperion OS.
+                Nominated for breakthrough creative engineering, buttery 60fps micro-interactions, and accessible web
+                standards on Hyperion OS.
               </p>
               <a href="#contact" class="award-cta">
                 <span>VIEW NOMINATION</span>
@@ -1806,7 +2010,8 @@
               </div>
               <h3 class="award-title">GitHub Innovation Grant</h3>
               <p class="award-desc">
-                Awarded $25,000 grant for open source contributions to lightweight distributed telemetry buffers running on edge runtimes.
+                Awarded $25,000 grant for open source contributions to lightweight distributed telemetry buffers running
+                on edge runtimes.
               </p>
               <a href="#contact" class="award-cta">
                 <span>READ ANNOUNCEMENT</span>
@@ -1833,7 +2038,8 @@
               </div>
               <h3 class="award-title">CSS Design Awards Special Kudos</h3>
               <p class="award-desc">
-                Awarded best in class for typography hierarchy, color contrast fidelity, and zero-layout-shift performance metrics.
+                Awarded best in class for typography hierarchy, color contrast fidelity, and zero-layout-shift
+                performance metrics.
               </p>
               <a href="#contact" class="award-cta">
                 <span>VIEW SHOWCASE</span>
@@ -1888,7 +2094,7 @@
             </button>
 
             <!-- GitHub Tile -->
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-tile">
+            <a href="https://github.com/dextercamila" target="_blank" rel="noopener noreferrer" class="social-tile">
               <div class="social-tile-header">
                 <span class="social-tile-name">GITHUB</span>
                 <span class="tile-arrow" aria-hidden="true">
@@ -1905,7 +2111,7 @@
             </a>
 
             <!-- X / Twitter Tile -->
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-tile">
+            <a href="https://x.com/dextercamila_" target="_blank" rel="noopener noreferrer" class="social-tile">
               <div class="social-tile-header">
                 <span class="social-tile-name">X / TWITTER</span>
                 <span class="tile-arrow" aria-hidden="true">
@@ -1916,13 +2122,14 @@
                 </span>
               </div>
               <div>
-                <p style="font-weight: 700; font-size: 15px;">@dextercamila</p>
+                <p style="font-weight: 700; font-size: 15px;">@dextercamila_</p>
                 <span class="social-tile-handle">Thoughts on frontend & craft</span>
               </div>
             </a>
 
             <!-- LinkedIn Tile -->
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-tile">
+            <a href="https://www.linkedin.com/in/dextercamila/" target="_blank" rel="noopener noreferrer"
+              class="social-tile">
               <div class="social-tile-header">
                 <span class="social-tile-name">LINKEDIN</span>
                 <span class="tile-arrow" aria-hidden="true">
@@ -2194,6 +2401,5 @@
     })();
   </script>
 </body>
+
 </html>
-
-
