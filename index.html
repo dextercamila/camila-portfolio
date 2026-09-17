@@ -1,0 +1,2199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dexter Camila — Freelance Software Developer</title>
+  <meta name="description" content="Senior freelance software developer building high-conviction web applications, custom design systems, and resilient cloud architectures." />
+  <meta property="og:title" content="Dexter Camila — Freelance Software Developer" />
+  <meta property="og:description" content="Single-page portfolio of freelance developer Dexter Camila featuring original isometric illustrations and interactive case studies." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Google Fonts: Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==========================================================================
+       CSS CUSTOM PROPERTIES & RESET
+       ========================================================================== */
+    :root {
+      --bg-canvas: #FA5341;
+      --text-main: #FFF9F5;
+      --card-bg: rgba(255, 249, 245, 0.08);
+      --card-bg-hover: rgba(255, 249, 245, 0.14);
+      --card-border: rgba(255, 249, 245, 0.18);
+      --accent-marigold: #FFC93C;
+      --accent-dark: #1E1210;
+      --shadow-coral: 0 20px 40px -12px rgba(160, 24, 12, 0.42), 0 6px 14px -4px rgba(160, 24, 12, 0.28);
+      --radius-card: 16px;
+      --radius-pill: 9999px;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-hero: clamp(4.5rem, 9.5vw, 8.5rem);
+      --font-h2: clamp(2.2rem, 5vw, 3.8rem);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--bg-canvas);
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Accessibility Focus Styles */
+    a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+      outline: 3px solid var(--accent-marigold);
+      outline-offset: 3px;
+    }
+
+    /* Selection */
+    ::selection {
+      background: var(--accent-marigold);
+      color: var(--accent-dark);
+    }
+
+    /* Custom Cursor (Desktop Only) */
+    @media (hover: hover) and (pointer: fine) {
+      .cursor-dot {
+        width: 10px;
+        height: 10px;
+        background-color: var(--text-main);
+        border-radius: 50%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+      }
+      .cursor-ring {
+        width: 36px;
+        height: 36px;
+        border: 2px solid rgba(255, 249, 245, 0.4);
+        border-radius: 50%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: transform 0.08s ease-out, border-color 0.2s ease;
+      }
+      body.cursor-hover .cursor-dot {
+        width: 22px;
+        height: 22px;
+        background-color: var(--accent-marigold);
+        mix-blend-mode: normal;
+      }
+      body.cursor-hover .cursor-ring {
+        transform: translate(-50%, -50%) scale(1.4);
+        border-color: var(--accent-marigold);
+      }
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 48px);
+    }
+
+    /* Micro-labels */
+    .micro-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 249, 245, 0.8);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .micro-label::before {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--accent-marigold);
+    }
+
+    /* Pill Buttons */
+    .btn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 24px 10px 10px;
+      background-color: var(--text-main);
+      color: var(--accent-dark);
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-coral);
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 24px 44px -10px rgba(150, 18, 8, 0.55);
+    }
+    .btn-badge-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: var(--accent-marigold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .btn-pill:hover .btn-badge-circle {
+      transform: rotate(45deg) scale(1.08);
+    }
+
+    /* Card Base */
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-card);
+      backdrop-filter: blur(8px);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      background-color: var(--card-bg-hover);
+      border-color: rgba(255, 249, 245, 0.32);
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-coral);
+    }
+
+    /* ==========================================================================
+       TOP NAVIGATION
+       ========================================================================== */
+    .site-header {
+      padding: 24px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(180deg, var(--bg-canvas) 85%, rgba(250, 83, 65, 0) 100%);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* Ticket Stub Logo Badge */
+    .ticket-stub {
+      display: inline-flex;
+      align-items: center;
+      background-color: var(--text-main);
+      color: var(--accent-dark);
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.08em;
+      position: relative;
+      box-shadow: 0 8px 20px rgba(160, 24, 12, 0.35);
+      transition: transform 0.2s ease;
+    }
+    .ticket-stub:hover {
+      transform: translateY(-2px);
+    }
+    /* Cutout notches on ticket edges */
+    .ticket-stub::before, .ticket-stub::after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: var(--bg-canvas);
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .ticket-stub::before { left: -5px; }
+    .ticket-stub::after { right: -5px; }
+    .ticket-stub .stub-sep {
+      height: 16px;
+      width: 1px;
+      border-right: 1px dashed rgba(30, 18, 16, 0.35);
+      margin: 0 10px;
+    }
+    .ticket-stub .stub-year {
+      font-size: 11px;
+      color: #724039;
+      font-weight: 600;
+    }
+
+    /* Center Nav Links */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(16px, 2.5vw, 32px);
+      list-style: none;
+    }
+    .nav-link {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 0;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--accent-marigold);
+      transition: width 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Circular Social Buttons with Hover Ring Animation */
+    .nav-socials {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .social-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+    .social-btn::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-marigold);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .social-btn:hover {
+      background-color: var(--text-main);
+      color: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+    .social-btn:hover::after {
+      opacity: 1;
+      transform: scale(1.08);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      padding: clamp(40px, 7vw, 90px) 0 clamp(60px, 8vw, 120px);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: clamp(32px, 5vw, 64px);
+    }
+    .hero-name {
+      font-size: var(--font-hero);
+      font-weight: 800;
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      margin: 20px 0 24px;
+      word-break: break-word;
+    }
+    .hero-desc {
+      font-size: clamp(16px, 1.4vw, 19px);
+      line-height: 1.6;
+      max-width: 520px;
+      color: rgba(255, 249, 245, 0.9);
+      margin-bottom: 36px;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 20px;
+    }
+    .avail-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: rgba(255, 249, 245, 0.85);
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 249, 245, 0.06);
+      border: 1px solid var(--card-border);
+    }
+    .avail-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #55E589;
+      box-shadow: 0 0 10px #55E589;
+      animation: pulse-dot 2s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* Workstation Isometric Stage */
+    .stage-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 540px;
+      margin: 0 auto;
+      perspective: 1000px;
+    }
+    .isometric-stage {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 30px 45px rgba(140, 16, 6, 0.45));
+      transition: transform 0.2s cubic-bezier(0.1, 0.9, 0.2, 1);
+      transform-style: preserve-3d;
+    }
+
+    /* ==========================================================================
+       SECTION 1: SELECTED WORK
+       ========================================================================== */
+    .section-wrap {
+      padding: clamp(50px, 8vw, 100px) 0;
+    }
+    .section-header {
+      margin-bottom: clamp(32px, 5vw, 56px);
+    }
+    .section-title {
+      font-size: var(--font-h2);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 30px;
+    }
+    /* Card 1 is promoted & spans both rows */
+    .work-card.promoted {
+      grid-row: 1 / 3;
+      display: flex;
+      flex-direction: column;
+      padding: clamp(24px, 3.5vw, 36px);
+    }
+    .work-card:not(.promoted) {
+      padding: clamp(20px, 2.5vw, 28px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .card-num {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      color: var(--accent-marigold);
+    }
+    .card-cat {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 249, 245, 0.7);
+    }
+    .card-icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 249, 245, 0.1);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .card-icon-btn:hover {
+      background: var(--text-main);
+      color: var(--accent-dark);
+      transform: rotate(45deg);
+    }
+
+    .preview-box {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 249, 245, 0.2);
+      background: rgba(30, 18, 16, 0.35);
+      overflow: hidden;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+    .work-card.promoted .preview-box {
+      flex: 1;
+      min-height: 260px;
+    }
+    .work-card:not(.promoted) .preview-box {
+      height: 160px;
+    }
+
+    .work-title {
+      font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .work-desc {
+      font-size: 14px;
+      color: rgba(255, 249, 245, 0.85);
+      margin-bottom: 20px;
+    }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .tag-pill {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 249, 245, 0.08);
+      border: 1px solid rgba(255, 249, 245, 0.16);
+      color: rgba(255, 249, 245, 0.9);
+    }
+    .work-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* ==========================================================================
+       SECTION 2: TALKS & COMMUNITY (TAB SWITCHER)
+       ========================================================================== */
+    .tab-nav {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 16px;
+      overflow-x: auto;
+    }
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: rgba(255, 249, 245, 0.7);
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+    .tab-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 249, 245, 0.08);
+    }
+    .tab-btn.active {
+      color: var(--accent-dark);
+      background-color: var(--accent-marigold);
+      box-shadow: 0 6px 16px rgba(180, 24, 12, 0.35);
+    }
+
+    .talks-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .talk-row {
+      display: grid;
+      grid-template-columns: 80px 44px 1fr auto auto 50px;
+      align-items: center;
+      gap: 20px;
+      padding: 16px 20px;
+      border-radius: 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      text-decoration: none;
+      color: var(--text-main);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .talk-year {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent-marigold);
+      letter-spacing: 0.06em;
+    }
+    .talk-glyph {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .talk-title {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 249, 245, 0.08);
+      border: 1px solid rgba(255, 249, 245, 0.16);
+      white-space: nowrap;
+    }
+    .talk-chevron-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      justify-self: end;
+    }
+
+    /* Active / Hover Row Inverts to White with Marigold Chevron Block */
+    .talk-row:hover, .talk-row.active {
+      background-color: var(--text-main);
+      color: var(--accent-dark);
+      border-color: var(--text-main);
+      transform: translateX(6px);
+      box-shadow: var(--shadow-coral);
+    }
+    .talk-row:hover .talk-year, .talk-row.active .talk-year {
+      color: #9C2719;
+    }
+    .talk-row:hover .chip, .talk-row.active .chip {
+      background: rgba(30, 18, 16, 0.07);
+      border-color: rgba(30, 18, 16, 0.15);
+      color: var(--accent-dark);
+    }
+    .talk-row:hover .talk-chevron-box, .talk-row.active .talk-chevron-box {
+      background-color: var(--accent-marigold);
+      color: var(--accent-dark);
+      transform: translateX(2px);
+    }
+
+    /* ==========================================================================
+       SECTION 3: FEATURED CASE STUDY (WIDE SPLIT PANEL)
+       ========================================================================== */
+    .case-panel {
+      padding: clamp(32px, 5vw, 56px);
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: clamp(32px, 5vw, 64px);
+      overflow: hidden;
+      position: relative;
+    }
+    .case-logo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 8px;
+      background: rgba(255, 249, 245, 0.12);
+      border: 1px solid rgba(255, 249, 245, 0.24);
+      margin-bottom: 20px;
+    }
+    .case-title {
+      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .case-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255, 249, 245, 0.9);
+      margin-bottom: 24px;
+    }
+    .dash-divider {
+      border: none;
+      border-top: 1px dashed rgba(255, 249, 245, 0.35);
+      margin: 24px 0;
+    }
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .metric-val {
+      font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+      font-weight: 800;
+      color: var(--accent-marigold);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .metric-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255, 249, 245, 0.75);
+      margin-top: 6px;
+    }
+
+    /* Angled SVG Mockup Collage */
+    .mockup-collage-wrapper {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      perspective: 900px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mockup-svg-canvas {
+      width: 100%;
+      max-width: 480px;
+      height: auto;
+      transform: rotateX(8deg) rotateY(-14deg) rotateZ(3deg);
+      filter: drop-shadow(0 24px 36px rgba(140, 16, 6, 0.5));
+      transition: transform 0.4s ease;
+    }
+    .case-panel:hover .mockup-svg-canvas {
+      transform: rotateX(4deg) rotateY(-8deg) rotateZ(1deg) scale(1.02);
+    }
+
+    /* ==========================================================================
+       SECTION 4: RECOGNITION (HORIZONTAL CAROUSEL)
+       ========================================================================== */
+    .recognition-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 36px;
+    }
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .carousel-counter {
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: var(--accent-marigold);
+      min-width: 70px;
+      text-align: center;
+    }
+    .ctrl-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .ctrl-btn:hover {
+      background: var(--text-main);
+      color: var(--accent-dark);
+      transform: scale(1.06);
+    }
+
+    .carousel-container {
+      overflow: hidden;
+      padding: 16px 0 32px;
+      position: relative;
+    }
+    .carousel-track {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .award-card {
+      flex: 0 0 calc(33.333% - 16px);
+      min-width: 290px;
+      padding: 32px 28px;
+      border-radius: var(--radius-card);
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      opacity: 0.55;
+      transform: scale(0.94);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+    .award-card.centered {
+      opacity: 1;
+      transform: scale(1.02);
+      border: 2px solid var(--text-main);
+      background: rgba(255, 249, 245, 0.12);
+      box-shadow: var(--shadow-coral);
+    }
+    .award-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .award-year {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 249, 245, 0.1);
+      border: 1px solid rgba(255, 249, 245, 0.2);
+    }
+    .award-title {
+      font-size: 18px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin: 16px 0 8px;
+    }
+    .award-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255, 249, 245, 0.85);
+      margin-bottom: 24px;
+      flex: 1;
+    }
+    .award-cta {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-marigold);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s ease;
+    }
+    .award-cta:hover {
+      gap: 10px;
+    }
+
+    /* ==========================================================================
+       SECTION 5: FIND ME HERE
+       ========================================================================== */
+    .find-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      align-items: center;
+      gap: clamp(32px, 5vw, 64px);
+    }
+    .find-headline {
+      font-size: clamp(2.4rem, 5.2vw, 4.4rem);
+      font-weight: 800;
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+    .social-tiles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .social-tile {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 24px;
+      text-decoration: none;
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 130px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+    .social-tile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .social-tile-name {
+      font-size: 17px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+    .social-tile-handle {
+      font-size: 12px;
+      color: rgba(255, 249, 245, 0.7);
+      margin-top: 4px;
+    }
+    /* Active / Hover Tile Scales Up & Takes Inverse Brand Color */
+    .social-tile:hover, .social-tile.active {
+      background-color: var(--text-main);
+      color: var(--accent-dark);
+      border-color: var(--text-main);
+      transform: scale(1.05) translateY(-4px);
+      box-shadow: 0 24px 44px -8px rgba(150, 18, 8, 0.55);
+    }
+    .social-tile:hover .social-tile-handle, .social-tile.active .social-tile-handle {
+      color: #724039;
+    }
+    .social-tile:hover .tile-arrow, .social-tile.active .tile-arrow {
+      color: #FA5341;
+      transform: translate(2px, -2px);
+    }
+
+    /* ==========================================================================
+       SECTION 6: FOOTER
+       ========================================================================== */
+    .site-footer {
+      padding: 60px 0 40px;
+      border-top: 1px solid var(--card-border);
+      margin-top: clamp(60px, 8vw, 120px);
+    }
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(16px, 3vw, 32px);
+      list-style: none;
+    }
+    .footer-link {
+      color: rgba(255, 249, 245, 0.8);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
+    }
+    .footer-link:hover {
+      color: var(--accent-marigold);
+    }
+    .footer-bottom {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 13px;
+      color: rgba(255, 249, 245, 0.65);
+      border-top: 1px dashed rgba(255, 249, 245, 0.2);
+      padding-top: 24px;
+    }
+
+    /* ==========================================================================
+       SCROLL REVEAL (INTERSECTION OBSERVER)
+       ========================================================================== */
+    .reveal-node {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      transition-delay: calc(var(--stagger, 0) * 80ms);
+    }
+    .reveal-node.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-node {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .isometric-stage {
+        transition: none !important;
+      }
+    }
+
+    /* Toast Notification for Clipboard Copy */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--text-main);
+      color: var(--accent-dark);
+      padding: 12px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      box-shadow: 0 16px 32px rgba(150, 18, 8, 0.5);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE MEDIA QUERIES
+       ========================================================================== */
+    @media (max-width: 1200px) {
+      .carousel-track {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 20px;
+      }
+      .award-card {
+        scroll-snap-align: center;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      .stage-wrapper {
+        margin-top: 20px;
+      }
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+      .work-card.promoted {
+        grid-row: auto;
+      }
+      .case-panel {
+        grid-template-columns: 1fr;
+      }
+      .find-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .talk-row {
+        grid-template-columns: 60px 1fr 36px;
+        gap: 12px;
+      }
+      .talk-glyph, .chip.location-chip, .chip.topic-chip {
+        display: none;
+      }
+      .metrics-row {
+        grid-template-columns: 1fr;
+      }
+      .social-tiles-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-name {
+        font-size: 3.4rem;
+      }
+      .btn-pill {
+        width: 100%;
+        justify-content: center;
+      }
+      .card {
+        padding: 18px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Custom Cursor Elements (Desktop Only) -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Toast for Copy Action -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2EB85C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toastMsg">Email copied to clipboard!</span>
+  </div>
+
+  <!-- ==========================================================================
+       TOP NAVIGATION BAR
+       ========================================================================== -->
+  <header class="site-header" role="banner">
+    <div class="container nav-inner">
+      <!-- Ticket-stub logo badge (monogram in a white tab that punches out) -->
+      <a href="#hero" class="ticket-stub" aria-label="Dexter Camila Homepage">
+        <span>DC</span>
+        <span class="stub-sep"></span>
+        <span class="stub-year">’26</span>
+      </a>
+
+      <!-- Center navigation links -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="#work" class="nav-link">WORK</a></li>
+          <li><a href="#talks" class="nav-link">TALKS</a></li>
+          <li><a href="#case-study" class="nav-link">CASE STUDY</a></li>
+          <li><a href="#recognition" class="nav-link">RECOGNITION</a></li>
+          <li><a href="#contact" class="nav-link">CONTACT</a></li>
+        </ul>
+      </nav>
+
+      <!-- Three circular social buttons with hover ring animation -->
+      <div class="nav-socials">
+        <!-- GitHub -->
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Dexter's GitHub profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+          </svg>
+        </a>
+        <!-- Twitter/X -->
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Dexter's Twitter profile">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Dexter's LinkedIn profile">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ==========================================================================
+         HERO SECTION
+         ========================================================================== -->
+    <section id="hero" class="hero-section" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <!-- Left Column: Type & CTAs -->
+        <div class="reveal-node" style="--stagger: 1;">
+          <span class="micro-label">FREELANCE DEVELOPER</span>
+          <h1 id="hero-title" class="hero-name">
+            DEXTER<br>CAMILA
+          </h1>
+          <p class="hero-desc">
+            Architecting robust web applications, design systems, and distributed cloud backends with meticulous craft for venture-backed startups and studios.
+          </p>
+          <div class="hero-actions">
+            <!-- Pill CTA in white with a marigold circular play/arrow badge on its left -->
+            <a href="#work" class="btn-pill">
+              <span class="btn-badge-circle" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1E1210" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="5 3 19 12 5 21 5 3" fill="#1E1210"></polygon>
+                </svg>
+              </span>
+              <span>EXPLORE WORK</span>
+            </a>
+
+            <!-- Availability Status Pill -->
+            <div class="avail-badge">
+              <span class="avail-dot" aria-hidden="true"></span>
+              <span>Available for Q3/Q4 Projects</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Original Isometric SVG Workstation Illustration Diorama -->
+        <div class="stage-wrapper reveal-node" style="--stagger: 2;" id="stageWrapper">
+          <svg class="isometric-stage" id="isoStage" viewBox="0 0 540 460" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cutaway isometric illustration of developer workstation with dual monitors, code, terminal, server rack, coffee cup, and UI components">
+            <defs>
+              <!-- Drop shadow filter -->
+              <filter id="isoShadow" x="-10%" y="-10%" width="130%" height="130%">
+                <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#9C1708" flood-opacity="0.45" />
+              </filter>
+            </defs>
+
+            <!-- Ground diagonal shadow -->
+            <path d="M70 290 L270 410 L480 290 L280 180 Z" fill="#D33525" opacity="0.6" />
+
+            <!-- Isometric Desk Base (Cutaway 3D Slab) -->
+            <!-- Top surface of desk -->
+            <path d="M90 270 L270 375 L460 265 L280 160 Z" fill="#FFF9F5" />
+            <!-- Front Left Face -->
+            <path d="M90 270 L90 292 L270 397 L270 375 Z" fill="#EAD9CE" />
+            <!-- Front Right Face -->
+            <path d="M270 375 L270 397 L460 287 L460 265 Z" fill="#CBB7AB" />
+
+            <!-- Desk Mat (Isometric) -->
+            <path d="M140 250 L270 326 L410 245 L280 170 Z" fill="#2A1B18" />
+
+            <!-- Stacked Server Rack Unit (Left rear of desk) -->
+            <g id="serverRack">
+              <!-- Base block -->
+              <path d="M110 190 L170 225 L170 275 L110 240 Z" fill="#1A1110" />
+              <path d="M170 225 L210 202 L210 252 L170 275 Z" fill="#2E1F1C" />
+              <path d="M110 190 L150 168 L210 202 L170 225 Z" fill="#3D2B28" />
+
+              <!-- Rack LEDs & Slots -->
+              <!-- Slot 1 -->
+              <line x1="120" y1="205" x2="160" y2="228" stroke="#48332F" stroke-width="3" stroke-linecap="round" />
+              <circle cx="125" cy="216" r="2.5" fill="#55E589" />
+              <circle cx="134" cy="221" r="2" fill="#FFC93C" />
+              <!-- Slot 2 -->
+              <line x1="120" y1="225" x2="160" y2="248" stroke="#48332F" stroke-width="3" stroke-linecap="round" />
+              <circle cx="125" cy="236" r="2.5" fill="#55E589" />
+              <!-- Slot 3 -->
+              <line x1="120" y1="245" x2="160" y2="268" stroke="#48332F" stroke-width="3" stroke-linecap="round" />
+              <circle cx="125" cy="256" r="2" fill="#55E589" />
+              <circle cx="134" cy="261" r="2" fill="#55E589" />
+            </g>
+
+            <!-- Curved Cable runs across desk & floor -->
+            <path d="M165 265 Q200 310 240 295 T300 330" fill="none" stroke="#FA5341" stroke-width="3.5" stroke-linecap="round" opacity="0.8" />
+            <path d="M185 270 Q215 315 255 300" fill="none" stroke="#FFC93C" stroke-width="2.5" stroke-linecap="round" />
+
+            <!-- Primary Ultra-Wide Monitor (Isometric Center) -->
+            <g id="mainMonitor">
+              <!-- Monitor Stand -->
+              <path d="M285 220 L315 237 L315 255 L285 238 Z" fill="#887B75" />
+              <path d="M270 245 L330 280 L320 286 L260 251 Z" fill="#5E514B" />
+
+              <!-- Monitor Back & Frame -->
+              <path d="M220 120 L380 212 L380 272 L220 180 Z" fill="#150E0C" stroke="#2D1F1B" stroke-width="2" />
+              <!-- Screen Display Surface -->
+              <path d="M225 126 L375 212 L375 266 L225 178 Z" fill="#1C1412" />
+
+              <!-- Code Lines & Window UI in Monitor -->
+              <!-- Title bar with colored dots -->
+              <circle cx="236" cy="138" r="2.5" fill="#FA5341" />
+              <circle cx="244" cy="142" r="2.5" fill="#FFC93C" />
+              <circle cx="252" cy="147" r="2.5" fill="#55E589" />
+
+              <!-- Syntax highlighted code bars -->
+              <!-- Line 1: const app = create(); -->
+              <line x1="236" y1="152" x2="265" y2="168" stroke="#FFC93C" stroke-width="3" stroke-linecap="round" />
+              <line x1="272" y1="172" x2="310" y2="194" stroke="#FFF9F5" stroke-width="3" stroke-linecap="round" />
+              <!-- Line 2: export async function run() { -->
+              <line x1="236" y1="164" x2="258" y2="176" stroke="#FA5341" stroke-width="3" stroke-linecap="round" />
+              <line x1="265" y1="180" x2="330" y2="217" stroke="#55E589" stroke-width="3" stroke-linecap="round" />
+              <!-- Line 3: await pipeline.stream(); -->
+              <line x1="248" y1="182" x2="320" y2="223" stroke="#FFF9F5" stroke-width="2.5" stroke-linecap="round" opacity="0.8" />
+              <!-- Line 4: return { status: 200 }; -->
+              <line x1="248" y1="194" x2="300" y2="224" stroke="#FFC93C" stroke-width="2.5" stroke-linecap="round" />
+              <!-- Line 5: } -->
+              <line x1="236" y1="198" x2="246" y2="204" stroke="#FA5341" stroke-width="3" stroke-linecap="round" />
+
+              <!-- Terminal Split (Lower half of screen) -->
+              <path d="M225 210 L375 296 L375 266 L225 178 Z" fill="#0C0706" opacity="0.4" />
+              <line x1="236" y1="214" x2="242" y2="217" stroke="#55E589" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="248" y1="220" x2="340" y2="272" stroke="#FFF9F5" stroke-width="2" stroke-dasharray="8 4" opacity="0.6" />
+            </g>
+
+            <!-- Vertical Secondary Terminal Monitor (Right side) -->
+            <g id="vertMonitor">
+              <path d="M390 150 L450 115 L450 200 L390 235 Z" fill="#1A1210" stroke="#382520" stroke-width="2" />
+              <path d="M395 155 L445 125 L445 195 L395 225 Z" fill="#0E0807" />
+              <!-- Green terminal prompt lines -->
+              <line x1="402" y1="160" x2="435" y2="140" stroke="#55E589" stroke-width="2" stroke-linecap="round" />
+              <line x1="402" y1="172" x2="430" y2="155" stroke="#FFC93C" stroke-width="2" stroke-linecap="round" />
+              <line x1="402" y1="184" x2="440" y2="162" stroke="#FFF9F5" stroke-width="1.8" stroke-linecap="round" opacity="0.7" />
+              <line x1="402" y1="196" x2="425" y2="182" stroke="#55E589" stroke-width="2" stroke-linecap="round" />
+              <line x1="402" y1="208" x2="438" y2="187" stroke="#FA5341" stroke-width="2" stroke-linecap="round" />
+            </g>
+
+            <!-- Mechanical Keyboard (Isometric) -->
+            <g id="keyboard">
+              <path d="M220 270 L280 305 L350 265 L290 230 Z" fill="#3D2D29" />
+              <path d="M220 270 L220 276 L280 311 L280 305 Z" fill="#251816" />
+              <path d="M280 305 L280 311 L350 271 L350 265 Z" fill="#1E1210" />
+              <!-- Key rows -->
+              <line x1="235" y1="270" x2="295" y2="235" stroke="#FFF9F5" stroke-width="2" stroke-linecap="round" opacity="0.7" />
+              <line x1="245" y1="278" x2="310" y2="242" stroke="#FFF9F5" stroke-width="2" stroke-linecap="round" opacity="0.7" />
+              <line x1="258" y1="288" x2="325" y2="250" stroke="#FFC93C" stroke-width="3" stroke-linecap="round" />
+            </g>
+
+            <!-- Steaming Ceramic Coffee Cup -->
+            <g id="coffeeCup">
+              <ellipse cx="205" cy="305" rx="14" ry="8" fill="#FFF9F5" />
+              <path d="M191 305 L191 320 Q191 332 205 332 Q219 332 219 320 L219 305 Z" fill="#FFF9F5" />
+              <!-- Coffee liquid surface -->
+              <ellipse cx="205" cy="305" rx="11" ry="6" fill="#42251D" />
+              <!-- Steam vapor waves -->
+              <path d="M202 295 Q205 285 200 275 T208 260" fill="none" stroke="#FFF9F5" stroke-width="1.8" stroke-linecap="round" opacity="0.6">
+                <animate attributeName="d" dur="3s" repeatCount="indefinite" values="M202 295 Q205 285 200 275 T208 260; M204 295 Q198 285 206 275 T202 260; M202 295 Q205 285 200 275 T208 260" />
+              </path>
+              <path d="M208 297 Q212 288 207 280 T214 265" fill="none" stroke="#FFC93C" stroke-width="1.5" stroke-linecap="round" opacity="0.5">
+                <animate attributeName="d" dur="2.5s" repeatCount="indefinite" values="M208 297 Q212 288 207 280 T214 265; M206 297 Q214 288 208 280 T212 265; M208 297 Q212 288 207 280 T214 265" />
+              </path>
+            </g>
+
+            <!-- Floating UI Component Diorama 1: Deployment Success Badge -->
+            <g id="floatingToast" filter="url(#isoShadow)">
+              <rect x="80" y="70" width="165" height="46" rx="8" fill="#FFF9F5" />
+              <circle cx="102" cy="93" r="10" fill="#55E589" />
+              <path d="M98 93 L101 96 L107 89" stroke="#1E1210" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              <text x="120" y="89" fill="#1E1210" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700">DEPLOYED EDGE</text>
+              <text x="120" y="103" fill="#786B67" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="600">p99 latency 14ms</text>
+            </g>
+
+            <!-- Floating UI Component Diorama 2: Active Feature Toggle -->
+            <g id="floatingToggle" filter="url(#isoShadow)">
+              <rect x="370" y="55" width="105" height="38" rx="19" fill="#1E1210" stroke="#FFF9F5" stroke-width="1.5" />
+              <circle cx="452" cy="74" r="14" fill="#FFC93C" />
+              <text x="388" y="78" fill="#FFF9F5" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">LIVE</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 1: SELECTED WORK (3 ASYMMETRIC PROJECT CARDS)
+         ========================================================================== -->
+    <section id="work" class="section-wrap" aria-labelledby="work-title">
+      <div class="container">
+        <div class="section-header reveal-node">
+          <span class="micro-label">01 / PORTFOLIO</span>
+          <h2 id="work-title" class="section-title">SELECTED WORK</h2>
+        </div>
+
+        <div class="work-grid">
+          <!-- Card 01: Taller, Promoted with Solid "VIEW CASE" CTA -->
+          <article class="card work-card promoted reveal-node" style="--stagger: 1;" aria-labelledby="proj1-title">
+            <div class="card-top">
+              <div>
+                <span class="card-num">№ 01</span>
+                <span style="margin: 0 8px; opacity: 0.4;">·</span>
+                <span class="card-cat">FINTECH & PAYMENTS</span>
+              </div>
+              <a href="#case-study" class="card-icon-btn" aria-label="View Aether Pay Case Study">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Original flat SVG illustration of Aether Pay -->
+            <div class="preview-box">
+              <svg width="100%" height="100%" viewBox="0 0 380 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Aether Pay dashboard SVG preview with payment sparkline and multi-currency badges">
+                <!-- Outer mock window -->
+                <rect x="20" y="20" width="340" height="180" rx="10" fill="#1C1311" stroke="rgba(255,249,245,0.15)" stroke-width="1.5" />
+                <!-- Header bar -->
+                <rect x="20" y="20" width="340" height="30" rx="10" fill="#281B18" />
+                <circle cx="36" cy="35" r="4" fill="#FA5341" />
+                <circle cx="48" cy="35" r="4" fill="#FFC93C" />
+                <circle cx="60" cy="35" r="4" fill="#55E589" />
+                <rect x="130" y="28" width="120" height="14" rx="4" fill="#3D2924" />
+
+                <!-- Card UI representation -->
+                <rect x="40" y="65" width="140" height="85" rx="8" fill="#FA5341" />
+                <circle cx="65" cy="88" r="10" fill="#FFC93C" />
+                <circle cx="78" cy="88" r="10" fill="#FFF9F5" opacity="0.8" />
+                <rect x="55" y="125" width="80" height="6" rx="3" fill="#FFF9F5" opacity="0.9" />
+
+                <!-- Real-time Sparkline Graph -->
+                <path d="M200 130 Q230 90 260 115 T310 75 T340 90" fill="none" stroke="#FFC93C" stroke-width="3.5" stroke-linecap="round" />
+                <circle cx="310" cy="75" r="5" fill="#FFF9F5" />
+
+                <!-- Stat badge -->
+                <rect x="200" y="65" width="120" height="38" rx="6" fill="#2D1D19" />
+                <text x="212" y="82" fill="#FFF9F5" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700">$428,920.00</text>
+                <text x="212" y="94" fill="#55E589" font-family="'Space Grotesk', sans-serif" font-size="8" font-weight="600">+18.4% volume</text>
+              </svg>
+            </div>
+
+            <h3 id="proj1-title" class="work-title">Aether Pay</h3>
+            <p class="work-desc">
+              Next-generation multi-currency payment infrastructure featuring sub-50ms transaction routing, zero-downtime ledger failover, and composable checkout widgets.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag-pill">React</span>
+              <span class="tag-pill">TypeScript</span>
+              <span class="tag-pill">Node</span>
+              <span class="tag-pill">Stripe</span>
+            </div>
+
+            <div class="work-footer">
+              <a href="#case-study" class="btn-pill">
+                <span class="btn-badge-circle" aria-hidden="true">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1E1210" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </span>
+                <span>VIEW CASE</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 02: Standard Height, Circular Play/Arrow Button -->
+          <article class="card work-card reveal-node" style="--stagger: 2;" aria-labelledby="proj2-title">
+            <div class="card-top">
+              <div>
+                <span class="card-num">№ 02</span>
+                <span style="margin: 0 8px; opacity: 0.4;">·</span>
+                <span class="card-cat">CREATIVE TOOLS & WEBGL</span>
+              </div>
+              <a href="#contact" class="card-icon-btn" aria-label="Launch Vector Studio details">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+            </div>
+
+            <!-- SVG Illustration for Vector Studio -->
+            <div class="preview-box">
+              <svg width="100%" height="100%" viewBox="0 0 280 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vector Studio node canvas preview">
+                <rect width="280" height="140" rx="8" fill="#1E1412" />
+                <!-- Grid background -->
+                <path d="M0 35 H280 M0 70 H280 M0 105 H280 M70 0 V140 M140 0 V140 M210 0 V140" stroke="rgba(255,249,245,0.06)" stroke-width="1" />
+                <!-- Bezier Curve with Anchor Handles -->
+                <path d="M40 90 C90 10 180 130 240 50" fill="none" stroke="#FFC93C" stroke-width="3.5" />
+                <circle cx="40" cy="90" r="5" fill="#FA5341" stroke="#FFF9F5" stroke-width="2" />
+                <circle cx="240" cy="50" r="5" fill="#55E589" stroke="#FFF9F5" stroke-width="2" />
+                <!-- Control handle -->
+                <line x1="90" y1="10" x2="40" y2="90" stroke="rgba(255,249,245,0.5)" stroke-dasharray="3 3" />
+                <rect x="85" y="5" width="10" height="10" fill="#FFF9F5" />
+              </svg>
+            </div>
+
+            <h3 id="proj2-title" class="work-title">Vector Studio</h3>
+            <p class="work-desc">
+              Collaborative in-browser generative canvas powered by custom WebGL fragment shaders and CRDT-based multi-user sync.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag-pill">React</span>
+              <span class="tag-pill">WebGL</span>
+              <span class="tag-pill">TypeScript</span>
+              <span class="tag-pill">WebSockets</span>
+            </div>
+
+            <div class="work-footer">
+              <a href="#contact" class="card-icon-btn" aria-label="View Vector Studio details">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFC93C">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 03: Developer Infrastructure -->
+          <article class="card work-card reveal-node" style="--stagger: 3;" aria-labelledby="proj3-title">
+            <div class="card-top">
+              <div>
+                <span class="card-num">№ 03</span>
+                <span style="margin: 0 8px; opacity: 0.4;">·</span>
+                <span class="card-cat">DEV INFRASTRUCTURE</span>
+              </div>
+              <a href="#contact" class="card-icon-btn" aria-label="Launch Pulse Engine details">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </a>
+            </div>
+
+            <!-- SVG Illustration for Pulse Engine -->
+            <div class="preview-box">
+              <svg width="100%" height="100%" viewBox="0 0 280 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pulse Engine cluster telemetry preview">
+                <rect width="280" height="140" rx="8" fill="#18100E" />
+                <!-- Cluster nodes -->
+                <circle cx="60" cy="70" r="18" fill="#2B1A16" stroke="#FA5341" stroke-width="2" />
+                <circle cx="140" cy="40" r="14" fill="#2B1A16" stroke="#FFC93C" stroke-width="2" />
+                <circle cx="140" cy="100" r="14" fill="#2B1A16" stroke="#55E589" stroke-width="2" />
+                <circle cx="220" cy="70" r="20" fill="#2B1A16" stroke="#FFF9F5" stroke-width="2" />
+                <!-- Connection lines with packet pulses -->
+                <line x1="78" y1="70" x2="126" y2="45" stroke="rgba(255,249,245,0.3)" stroke-width="2" />
+                <line x1="78" y1="70" x2="126" y2="95" stroke="rgba(255,249,245,0.3)" stroke-width="2" />
+                <line x1="154" y1="45" x2="200" y2="70" stroke="rgba(255,249,245,0.3)" stroke-width="2" />
+                <line x1="154" y1="95" x2="200" y2="70" stroke="rgba(255,249,245,0.3)" stroke-width="2" />
+                <circle cx="102" cy="57" r="3" fill="#FFC93C" />
+                <circle cx="177" cy="82" r="3" fill="#55E589" />
+              </svg>
+            </div>
+
+            <h3 id="proj3-title" class="work-title">Pulse Engine</h3>
+            <p class="work-desc">
+              High-throughput telemetry pipeline collecting over 8M system events/sec with columnar edge aggregation and anomaly alerts.
+            </p>
+
+            <div class="tag-row">
+              <span class="tag-pill">Go</span>
+              <span class="tag-pill">PostgreSQL</span>
+              <span class="tag-pill">TypeScript</span>
+              <span class="tag-pill">Docker</span>
+            </div>
+
+            <div class="work-footer">
+              <a href="#contact" class="card-icon-btn" aria-label="View Pulse Engine details">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#FFC93C">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 2: TALKS & COMMUNITY (FILTERABLE LIST WITH ROW INVERSION)
+         ========================================================================== -->
+    <section id="talks" class="section-wrap" aria-labelledby="talks-title">
+      <div class="container">
+        <div class="section-header reveal-node">
+          <span class="micro-label">02 / DISPATCHES</span>
+          <h2 id="talks-title" class="section-title">TALKS & COMMUNITY</h2>
+        </div>
+
+        <!-- Tab Switcher (WRITING / TALKS / OPEN SOURCE) -->
+        <div class="tab-nav reveal-node" role="tablist" aria-label="Filter Talks and Community">
+          <button class="tab-btn active" data-tab="all" role="tab" aria-selected="true">ALL ENTRIES</button>
+          <button class="tab-btn" data-tab="writing" role="tab" aria-selected="false">WRITING</button>
+          <button class="tab-btn" data-tab="talks" role="tab" aria-selected="false">TALKS</button>
+          <button class="tab-btn" data-tab="opensource" role="tab" aria-selected="false">OPEN SOURCE</button>
+        </div>
+
+        <!-- Filterable List of Rows -->
+        <div class="talks-list" id="talksList">
+          <!-- Row 1: Talk -->
+          <div class="talk-row reveal-node" data-category="talks" tabindex="0" role="article">
+            <span class="talk-year">2025</span>
+            <div class="talk-glyph" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <span class="talk-title">Zero-Latency State Synchronization over WebSockets</span>
+            <span class="chip location-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              Amsterdam · React Summit
+            </span>
+            <span class="chip topic-chip">State Machines</span>
+            <div class="talk-chevron-box" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Row 2: Writing -->
+          <div class="talk-row reveal-node" data-category="writing" tabindex="0" role="article">
+            <span class="talk-year">2025</span>
+            <div class="talk-glyph" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+            </div>
+            <span class="talk-title">Rethinking Modern Design Tokens: From Figma to WebGL</span>
+            <span class="chip location-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+              </svg>
+              Smashing Magazine
+            </span>
+            <span class="chip topic-chip">Design Systems</span>
+            <div class="talk-chevron-box" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Row 3: Open Source -->
+          <div class="talk-row reveal-node" data-category="opensource" tabindex="0" role="article">
+            <span class="talk-year">2024</span>
+            <div class="talk-glyph" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+              </svg>
+            </div>
+            <span class="talk-title">TurboMesh: Micro-framework for Edge Event Streaming</span>
+            <span class="chip location-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+              GitHub · 4.8k Stars
+            </span>
+            <span class="chip topic-chip">Rust & Edge</span>
+            <div class="talk-chevron-box" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Row 4: Talk -->
+          <div class="talk-row reveal-node" data-category="talks" tabindex="0" role="article">
+            <span class="talk-year">2024</span>
+            <div class="talk-glyph" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <span class="talk-title">Building Resilient UI Foundations for 100M+ Users</span>
+            <span class="chip location-chip">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              San Francisco · Next.js Conf
+            </span>
+            <span class="chip topic-chip">Performance</span>
+            <div class="talk-chevron-box" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 3: FEATURED CASE STUDY (WIDE SPLIT PANEL)
+         ========================================================================== -->
+    <section id="case-study" class="section-wrap" aria-labelledby="case-heading">
+      <div class="container">
+        <div class="section-header reveal-node">
+          <span class="micro-label">03 / DEEP DIVE</span>
+          <h2 id="case-heading" class="section-title">FEATURED CASE STUDY</h2>
+        </div>
+
+        <div class="card case-panel reveal-node">
+          <!-- Left Column: Copy & Metrics -->
+          <div>
+            <div class="case-logo-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+              <span>AETHER PAY ENTERPRISE</span>
+            </div>
+
+            <h3 class="case-title">
+              Re-architecting global checkout for 4.2M daily shoppers
+            </h3>
+
+            <p class="case-desc">
+              Migrated legacy monolithic billing flows to an edge-first distributed micro-frontend topology. Delivered sub-50ms payment verification, resilient multi-gateway fallback, and a custom accessible design system used across 48 countries.
+            </p>
+
+            <hr class="dash-divider" />
+
+            <!-- Metrics Grid -->
+            <div class="metrics-row">
+              <div>
+                <div class="metric-val">-38%</div>
+                <div class="metric-label">Latency Reduction</div>
+              </div>
+              <div>
+                <div class="metric-val">99.999%</div>
+                <div class="metric-label">Checkout SLA</div>
+              </div>
+              <div>
+                <div class="metric-val">$180M+</div>
+                <div class="metric-label">GMV Processed</div>
+              </div>
+            </div>
+
+            <a href="#contact" class="btn-pill">
+              <span class="btn-badge-circle" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1E1210" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+              <span>READ ARCHITECTURE SPECS</span>
+            </a>
+          </div>
+
+          <!-- Right Column: Angled SVG Mockup Collage -->
+          <div class="mockup-collage-wrapper" aria-hidden="true">
+            <svg class="mockup-svg-canvas" viewBox="0 0 460 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Back Mockup Screen (Rotated) -->
+              <g opacity="0.6">
+                <rect x="20" y="30" width="360" height="220" rx="12" fill="#1C1311" stroke="rgba(255,249,245,0.2)" stroke-width="1.5" />
+                <rect x="35" y="50" width="120" height="12" rx="4" fill="#FA5341" />
+                <rect x="35" y="75" width="200" height="8" rx="4" fill="rgba(255,249,245,0.3)" />
+                <rect x="35" y="95" width="160" height="8" rx="4" fill="rgba(255,249,245,0.2)" />
+              </g>
+
+              <!-- Front Mockup Screen (Sharp, Angled) -->
+              <g>
+                <rect x="80" y="90" width="360" height="240" rx="14" fill="#251917" stroke="#FFF9F5" stroke-width="2" />
+                <!-- Title bar -->
+                <rect x="80" y="90" width="360" height="34" rx="14" fill="#362420" />
+                <circle cx="102" cy="107" r="4.5" fill="#FA5341" />
+                <circle cx="116" cy="107" r="4.5" fill="#FFC93C" />
+                <circle cx="130" cy="107" r="4.5" fill="#55E589" />
+
+                <!-- Mock Payment Modal Interior -->
+                <rect x="110" y="145" width="180" height="70" rx="8" fill="#FA5341" />
+                <circle cx="135" cy="170" r="10" fill="#FFC93C" />
+                <circle cx="147" cy="170" r="10" fill="#FFF9F5" opacity="0.8" />
+                <text x="135" y="202" fill="#FFF9F5" font-family="'Space Grotesk', sans-serif" font-size="10" font-weight="700">•••• 8492</text>
+
+                <!-- Status Card Floating -->
+                <rect x="310" y="145" width="105" height="110" rx="8" fill="#180F0D" stroke="rgba(255,249,245,0.15)" stroke-width="1" />
+                <circle cx="362" cy="180" r="16" fill="#55E589" />
+                <path d="M356 180 L360 184 L368 175" stroke="#1E1210" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                <text x="330" y="215" fill="#FFF9F5" font-family="'Space Grotesk', sans-serif" font-size="9" font-weight="700">AUTHORIZED</text>
+                <text x="338" y="230" fill="#FFC93C" font-family="'Space Grotesk', sans-serif" font-size="8" font-weight="600">32ms ROUTE</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 4: RECOGNITION (HORIZONTAL CAROUSEL)
+         ========================================================================== -->
+    <section id="recognition" class="section-wrap" aria-labelledby="recog-title">
+      <div class="container">
+        <div class="recognition-header reveal-node">
+          <div>
+            <span class="micro-label">04 / HONORS</span>
+            <h2 id="recog-title" class="section-title">RECOGNITION</h2>
+          </div>
+
+          <!-- Carousel Controls with Dynamic Counter -->
+          <div class="carousel-controls">
+            <span class="carousel-counter" id="carouselCounter" aria-live="polite">№ 1 / 3</span>
+            <button class="ctrl-btn" id="prevBtn" aria-label="Previous Award">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button class="ctrl-btn" id="nextBtn" aria-label="Next Award">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Carousel Track -->
+        <div class="carousel-container">
+          <div class="carousel-track" id="carouselTrack">
+            <!-- Card 1: Centered / Emphasized -->
+            <div class="award-card centered" data-index="0" tabindex="0">
+              <div class="award-top">
+                <span class="award-year">2025</span>
+                <!-- Laurel Emblem SVG -->
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFC93C" stroke-width="2">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                </svg>
+              </div>
+              <h3 class="award-title">Awwwards Site of the Year</h3>
+              <p class="award-desc">
+                Nominated for breakthrough creative engineering, buttery 60fps micro-interactions, and accessible web standards on Hyperion OS.
+              </p>
+              <a href="#contact" class="award-cta">
+                <span>VIEW NOMINATION</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="award-card" data-index="1" tabindex="0">
+              <div class="award-top">
+                <span class="award-year">2024</span>
+                <!-- Star Medal Emblem SVG -->
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFF9F5" stroke-width="2">
+                  <circle cx="12" cy="8" r="7"></circle>
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+              </div>
+              <h3 class="award-title">GitHub Innovation Grant</h3>
+              <p class="award-desc">
+                Awarded $25,000 grant for open source contributions to lightweight distributed telemetry buffers running on edge runtimes.
+              </p>
+              <a href="#contact" class="award-cta">
+                <span>READ ANNOUNCEMENT</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="award-card" data-index="2" tabindex="0">
+              <div class="award-top">
+                <span class="award-year">2024</span>
+                <!-- Trophy Emblem SVG -->
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFC93C" stroke-width="2">
+                  <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
+                  <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path>
+                  <path d="M4 22h16"></path>
+                  <path d="M10 14.66V17c0 .55-.45 1-1 1H7"></path>
+                  <path d="M14 14.66V17c0 .55.45 1 1 1h2"></path>
+                  <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"></path>
+                </svg>
+              </div>
+              <h3 class="award-title">CSS Design Awards Special Kudos</h3>
+              <p class="award-desc">
+                Awarded best in class for typography hierarchy, color contrast fidelity, and zero-layout-shift performance metrics.
+              </p>
+              <a href="#contact" class="award-cta">
+                <span>VIEW SHOWCASE</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 5: FIND ME HERE (OVERSIZED TWO-LINE HEADLINE + SOCIAL TILES)
+         ========================================================================== -->
+    <section id="contact" class="section-wrap" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section-header reveal-node">
+          <span class="micro-label">05 / DIRECT ACCESS</span>
+        </div>
+
+        <div class="find-grid">
+          <!-- Oversized Two-Line Headline -->
+          <div class="reveal-node">
+            <h2 id="contact-heading" class="find-headline">
+              LET’S BUILD<br>SOMETHING<br>ICONIC.
+            </h2>
+            <p style="margin-top: 24px; font-size: 16px; color: rgba(255,249,245,0.85); max-width: 380px;">
+              Currently booking freelance engagements, design system contracts, and technical advisory for late 2026.
+            </p>
+          </div>
+
+          <!-- Large Rounded Social Tiles -->
+          <div class="social-tiles-grid reveal-node">
+            <!-- Email Tile with Quick Copy Action -->
+            <button class="social-tile active" id="copyEmailBtn" aria-label="Copy Dexter's email address">
+              <div class="social-tile-header">
+                <span class="social-tile-name">EMAIL</span>
+                <span class="tile-arrow" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+              </div>
+              <div>
+                <p style="font-weight: 700; font-size: 15px;">dextercamila@gmail.com</p>
+                <span class="social-tile-handle">Click to copy address</span>
+              </div>
+            </button>
+
+            <!-- GitHub Tile -->
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-tile">
+              <div class="social-tile-header">
+                <span class="social-tile-name">GITHUB</span>
+                <span class="tile-arrow" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+              </div>
+              <div>
+                <p style="font-weight: 700; font-size: 15px;">@dextercamila</p>
+                <span class="social-tile-handle">Code repos & experiments</span>
+              </div>
+            </a>
+
+            <!-- X / Twitter Tile -->
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-tile">
+              <div class="social-tile-header">
+                <span class="social-tile-name">X / TWITTER</span>
+                <span class="tile-arrow" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+              </div>
+              <div>
+                <p style="font-weight: 700; font-size: 15px;">@dextercamila</p>
+                <span class="social-tile-handle">Thoughts on frontend & craft</span>
+              </div>
+            </a>
+
+            <!-- LinkedIn Tile -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-tile">
+              <div class="social-tile-header">
+                <span class="social-tile-name">LINKEDIN</span>
+                <span class="tile-arrow" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </span>
+              </div>
+              <div>
+                <p style="font-weight: 700; font-size: 15px;">Dexter Camila</p>
+                <span class="social-tile-handle">Experience & credentials</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       SECTION 6: FOOTER
+       ========================================================================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Ticket-stub Logo Badge in Footer -->
+        <a href="#hero" class="ticket-stub" aria-label="Dexter Camila Homepage">
+          <span>DC</span>
+          <span class="stub-sep"></span>
+          <span class="stub-year">’26</span>
+        </a>
+
+        <!-- Footer Navigation Links -->
+        <ul class="footer-links">
+          <li><a href="#work" class="footer-link">WORK</a></li>
+          <li><a href="#talks" class="footer-link">TALKS</a></li>
+          <li><a href="#case-study" class="footer-link">CASE STUDY</a></li>
+          <li><a href="#recognition" class="footer-link">RECOGNITION</a></li>
+          <li><a href="#contact" class="footer-link">CONTACT</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Dexter Camila. Hand-crafted with vanilla HTML, CSS & SVG. Google Fonts only.</p>
+        <p>Available for select freelance contracts worldwide.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       VANILLA JAVASCRIPT: INTERACTIONS, OBSERVERS, CAROUSEL & PARALLAX
+       ========================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      // ----------------------------------------------------------------------
+      // 1. CUSTOM CURSOR (Desktop only with mouse pointer)
+      // ----------------------------------------------------------------------
+      const cursorDot = document.getElementById('cursorDot');
+      const cursorRing = document.getElementById('cursorRing');
+
+      if (window.matchMedia('(hover: hover) and (pointer: fine)').matches && cursorDot && cursorRing) {
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let ringX = mouseX;
+        let ringY = mouseY;
+
+        window.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+        });
+
+        // Smooth ring lerp
+        function renderRing() {
+          ringX += (mouseX - ringX) * 0.15;
+          ringY += (mouseY - ringY) * 0.15;
+          cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+          requestAnimationFrame(renderRing);
+        }
+        renderRing();
+
+        // Hover scale over interactive elements
+        const interactiveSelectors = 'a, button, [tabindex="0"], .talk-row, .card, .social-tile';
+        document.querySelectorAll(interactiveSelectors).forEach((el) => {
+          el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+          el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+        });
+      }
+
+      // ----------------------------------------------------------------------
+      // 2. SCROLL REVEAL VIA INTERSECTION OBSERVER
+      // ----------------------------------------------------------------------
+      const revealNodes = document.querySelectorAll('.reveal-node');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.1,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealNodes.forEach((node) => observer.observe(node));
+      } else {
+        revealNodes.forEach((node) => node.classList.add('is-revealed'));
+      }
+
+      // ----------------------------------------------------------------------
+      // 3. ISOMETRIC WORKSTATION SLOW PARALLAX DRIFT ON MOUSE MOVE
+      // ----------------------------------------------------------------------
+      const stageWrapper = document.getElementById('stageWrapper');
+      const isoStage = document.getElementById('isoStage');
+
+      if (stageWrapper && isoStage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        let targetRotateX = 0;
+        let targetRotateY = 0;
+        let currentRotateX = 0;
+        let currentRotateY = 0;
+
+        window.addEventListener('mousemove', (e) => {
+          const rect = stageWrapper.getBoundingClientRect();
+          const centerX = rect.left + rect.width / 2;
+          const centerY = rect.top + rect.height / 2;
+          const deltaX = (e.clientX - centerX) / (window.innerWidth / 2);
+          const deltaY = (e.clientY - centerY) / (window.innerHeight / 2);
+
+          targetRotateY = deltaX * 8; // subtle max 8 deg
+          targetRotateX = -deltaY * 6;
+        });
+
+        function animateParallax() {
+          currentRotateX += (targetRotateX - currentRotateX) * 0.08;
+          currentRotateY += (targetRotateY - currentRotateY) * 0.08;
+          isoStage.style.transform = `rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg)`;
+          requestAnimationFrame(animateParallax);
+        }
+        animateParallax();
+      }
+
+      // ----------------------------------------------------------------------
+      // 4. TALKS & COMMUNITY TAB SWITCHER
+      // ----------------------------------------------------------------------
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const talkRows = document.querySelectorAll('.talk-row');
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          tabButtons.forEach((b) => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+
+          const category = btn.getAttribute('data-tab');
+
+          talkRows.forEach((row) => {
+            const rowCat = row.getAttribute('data-category');
+            if (category === 'all' || rowCat === category) {
+              row.style.display = 'grid';
+              setTimeout(() => {
+                row.style.opacity = '1';
+                row.style.transform = 'translateY(0)';
+              }, 20);
+            } else {
+              row.style.opacity = '0';
+              row.style.transform = 'translateY(10px)';
+              setTimeout(() => {
+                row.style.display = 'none';
+              }, 200);
+            }
+          });
+        });
+      });
+
+      // Interactive row click active state toggle
+      talkRows.forEach((row) => {
+        row.addEventListener('click', () => {
+          talkRows.forEach((r) => r.classList.remove('active'));
+          row.classList.add('active');
+        });
+      });
+
+      // ----------------------------------------------------------------------
+      // 5. RECOGNITION CAROUSEL
+      // ----------------------------------------------------------------------
+      const awardCards = Array.from(document.querySelectorAll('.award-card'));
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const counterEl = document.getElementById('carouselCounter');
+      let currentIndex = 0;
+      const totalCards = awardCards.length;
+
+      function updateCarousel(index) {
+        currentIndex = (index + totalCards) % totalCards;
+        awardCards.forEach((card, idx) => {
+          if (idx === currentIndex) {
+            card.classList.add('centered');
+            card.setAttribute('aria-current', 'true');
+          } else {
+            card.classList.remove('centered');
+            card.removeAttribute('aria-current');
+          }
+        });
+
+        if (counterEl) {
+          counterEl.textContent = `№ ${currentIndex + 1} / ${totalCards}`;
+        }
+
+        // Scroll card into center if needed
+        const activeCard = awardCards[currentIndex];
+        if (activeCard && activeCard.parentElement) {
+          activeCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      }
+
+      if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => updateCarousel(currentIndex - 1));
+        nextBtn.addEventListener('click', () => updateCarousel(currentIndex + 1));
+      }
+
+      // Click card directly to center it
+      awardCards.forEach((card, idx) => {
+        card.addEventListener('click', () => updateCarousel(idx));
+      });
+
+      // Keyboard navigation for carousel
+      window.addEventListener('keydown', (e) => {
+        if (document.activeElement && document.activeElement.classList.contains('award-card')) {
+          if (e.key === 'ArrowRight') updateCarousel(currentIndex + 1);
+          if (e.key === 'ArrowLeft') updateCarousel(currentIndex - 1);
+        }
+      });
+
+      // ----------------------------------------------------------------------
+      // 6. QUICK COPY EMAIL ACTION & TOAST
+      // ----------------------------------------------------------------------
+      const copyEmailBtn = document.getElementById('copyEmailBtn');
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMsg');
+
+      function showToast(msg) {
+        if (!toast) return;
+        toastMsg.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3200);
+      }
+
+      if (copyEmailBtn) {
+        copyEmailBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const email = 'dextercamila@gmail.com';
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(email)
+              .then(() => showToast('Email copied to clipboard!'))
+              .catch(() => showToast('Address: dextercamila@gmail.com'));
+          } else {
+            showToast('Address: dextercamila@gmail.com');
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
+
+
